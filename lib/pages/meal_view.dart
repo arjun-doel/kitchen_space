@@ -17,8 +17,9 @@ class _MealViewState extends State<MealView> {
   }
 
   getValues() async {
-    await getMeals();
-    // setState(() {});
+    meals = await getMeals();
+    setState(() {});
+    print(meals);
   }
 
   @override

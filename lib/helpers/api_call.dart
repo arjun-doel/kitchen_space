@@ -7,7 +7,7 @@ Future getMeals() async {
     var response = await http.get(Uri.parse(url));
     var json = jsonDecode(response.body);
     var meal = json['meals'][0];
-    print(meal['strMeal']);
+    return meal;
   } catch (e) {
     print(e.toString());
   }
