@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitchen_space/data/api_call.dart';
 import 'package:kitchen_space/helpers/api_call.dart';
 
 class MealView extends StatefulWidget {
@@ -18,7 +19,10 @@ class _MealViewState extends State<MealView> {
 
   getValues() async {
     meals = await getMeals();
-    setState(() {});
+    if (meals) {
+      setState(() {});
+    }
+
     print(meals['strMeal']);
   }
 
@@ -43,11 +47,8 @@ class _MealViewState extends State<MealView> {
                   height: 30,
                 ),
                 ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  child: Image.network(
-                    meals['strMealThumb'],
-                  ),
-                )
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    child: Image.network(meals['strMealThumb']))
               ],
             ),
           ),
