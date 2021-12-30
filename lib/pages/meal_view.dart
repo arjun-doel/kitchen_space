@@ -26,7 +26,7 @@ class _MealViewState extends State<MealView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 350,
           child: Card(
             child: Column(
@@ -43,8 +43,10 @@ class _MealViewState extends State<MealView> {
                   height: 30,
                 ),
                 ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  child: Image.network(meals['strMealThumb']),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  child: Image.network(
+                    meals['strMealThumb'],
+                  ),
                 )
               ],
             ),
