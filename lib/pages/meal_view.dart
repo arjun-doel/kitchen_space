@@ -34,6 +34,16 @@ class _MealViewState extends State<MealView> {
                 leading: const Icon(Icons.favorite_border),
                 title: Text(meals['strMeal']),
               ),
+              const SizedBox(
+                width: 10,
+                height: 50,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                ),
+                child: Image.network(meals['strMealThumb']),
+              )
             ],
           ),
         ),
