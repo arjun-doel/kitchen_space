@@ -26,25 +26,28 @@ class _MealViewState extends State<MealView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Card(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListTile(
-                leading: const Icon(Icons.favorite_border),
-                title: Text(meals['strMeal']),
-              ),
-              const SizedBox(
-                width: 10,
-                height: 50,
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        child: Container(
+          width: 350,
+          child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  leading: const Icon(Icons.favorite_border),
+                  title: Text(
+                    meals['strMeal'],
+                    style: const TextStyle(fontWeight: FontWeight.w500),
+                  ),
                 ),
-                child: Image.network(meals['strMealThumb']),
-              )
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                  child: Image.network(meals['strMealThumb']),
+                )
+              ],
+            ),
           ),
         ),
       ),
