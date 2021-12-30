@@ -24,9 +24,15 @@ class _MealViewState extends State<MealView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('MealView'),
+        child: Card(
+          child: Column(
+            children: const [
+              Text('This is col title'),
+            ],
+          ),
+        ),
       ),
     );
   }
