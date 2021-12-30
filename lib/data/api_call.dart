@@ -1,14 +1,15 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-Future getMeals() async {
-  try {
-    var url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata';
-    var response = await http.get(Uri.parse(url));
-    var json = jsonDecode(response.body);
-    var meal = json['meals'][0];
-    return meal;
-  } catch (e) {
-    print(e.toString());
+import 'package:kitchen_space/data/model.dart';
+
+Future<Meal> fetchMeal() async {
+  var url = 'www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata';
+  final response = await http.get(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    return Meal.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('Failed to load meal');
   }
 }
