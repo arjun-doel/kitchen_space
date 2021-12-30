@@ -19,7 +19,7 @@ class _MealViewState extends State<MealView> {
   getValues() async {
     meals = await getMeals();
     setState(() {});
-    print(meals);
+    print(meals['strMeal']);
   }
 
   @override
@@ -28,8 +28,12 @@ class _MealViewState extends State<MealView> {
       body: Center(
         child: Card(
           child: Column(
-            children: const [
-              Text('This is col title'),
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.favorite_border),
+                title: Text(meals['strMeal']),
+              ),
             ],
           ),
         ),
